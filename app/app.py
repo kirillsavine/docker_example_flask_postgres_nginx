@@ -9,9 +9,9 @@ from flask_restful import Resource, Api
 from sqlalchemy.engine import Connection, create_engine, Engine
 
 # con_string = os.getenv("DB_CONN", "not found")  # todo (see how to store this in an infra file)
-con_string = 'postgresql://postgres:postgres@localhost:5432'
+CON_STRING = 'postgresql://postgres:postgres@ec2-18-222-180-141.us-east-2.compute.amazonaws.com:5432'
 # db_table =  os.getenv("DB_TABLE", "not found")  # todo
-db_table = 'postgres.log'
+DB_TABLE = 'public.log'
 
 app = Flask(__name__)
 api = Api(app)
@@ -20,12 +20,17 @@ api = Api(app)
 def insert_data(df: pd.DataFrame, engine: Engine):
     df.to_sql(name="log", con=engine, index=False, if_exists='append')
 
-def fetch_data(engine: Engine):
-    df.read_sql(f"select * from {db_table}")
+def fetch_data():
+    engine = create_engine(CON_STRING)
+    df = pd.read_sql(f"select * from {DB_TABLE}", con=engine)
+    engine.dispose()
+    return df
+
+
 
 class Map(Resource):
     def get(self, id):
-        return {todo_id: todos[id]}
+        return {id: todos[id]}
 
     def put(self, id):
         todos[todo_id] = request.form['data']
@@ -43,10 +48,9 @@ def hello():
 
     files = '<br>'.join(os.listdir('.'))
 
-    engine = create_engine(con_string)
+
     df = pd.DataFrame({'user': ['123'], 'x': [1]})
-    insert_data(df, engine)
-    engine.dispose()
+    insert_data(df)
 
     return html.format(
         name=os.getenv("MY_ENV_VAR", "not found"),
