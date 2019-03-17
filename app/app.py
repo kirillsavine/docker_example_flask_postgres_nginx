@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
@@ -5,14 +6,14 @@ from sqlalchemy.engine import Connection, create_engine, Engine
 from flask_cors import CORS
 
 
-# con_string = os.getenv("DB_CONN", "not found")  # todo (see how to store this in an infra file)
-CON_STRING = 'postgresql://postgres:postgres@ec2-18-222-180-141.us-east-2.compute.amazonaws.com:5432'
-# db_table =  os.getenv("DB_TABLE", "not found")  # todo
-DB_TABLE = 'locations'
+CON_STRING = os.getenv("DB_CONN", "not found")  # todo (see how to store this in an infra file)
+#CON_STRING = 'postgresql://postgres:postgres@ec2-18-222-180-141.us-east-2.compute.amazonaws.com:5432'
+DB_TABLE =  os.getenv("DB_TABLE", "not found")  # todo
+#DB_TABLE = 'locations'
 
 # maximum number of records that can be returned by the 'get_all' API
-MAX_RECORDS =  1000
-# db_table =  os.getenv("MAX_RECORDS", "not found")  # todo
+#MAX_RECORDS = 1000
+MAX_RECORDS =  os.getenv("MAX_RECORDS", "not found")  # todo
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
