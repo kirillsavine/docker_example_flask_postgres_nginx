@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nginx:
-    image: "nginx:1.13.5"
+    build: ./nginx
     ports:
       - "8080:80"
     volumes:
@@ -15,7 +15,7 @@ services:
     ports:
       - 1234:80
     depends_on:
-      - postgres        
+      - postgres
 
   postgres:
     restart: 'always'
