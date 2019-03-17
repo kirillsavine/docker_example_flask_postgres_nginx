@@ -65,7 +65,7 @@ $(document).ready(function() {
 
 function show_message(type, heading, body){
 	html = '<div class="alert alert-'+type+'"><strong>'+heading+'</strong>'+body+'</div>'
-	$("#message").html(html).delay(3000).fadeOut();
+	$("#message").html(html).delay(5000).fadeOut();
 }
 
 function add_col_search(ctx){
@@ -113,6 +113,9 @@ function init_data_table(){
 
 </head>
    <body class="well">
+		<small><h2>
+		This is a simple app that makes use of 3 Docker containers:  Nginx web server, Postgres database, and a Flask restful service. This app demosntrates how each of these components are bundled together. Please find the source code and documentation in this repository: <a href='https://github.com/kirillsavine/docker_example_flask_postgres_nginx'>Docker Example: Flask, Postgres, Nginx</a>
+		</h2></small>
    		<div class="row">
 			<div class="col-sm-4">
 				<h2>(1) Fill out the form: </h2>
@@ -145,7 +148,7 @@ function init_data_table(){
 	      </div>
 	      <div class="col-sm-8">
 	      		<h2>(2) See data: </h2>
-	      		<p>Information will be fetch from the database</p>
+	      		<p>Information will be fetched from the database</p>
 		    	<button type="submit" id='refresh_table' class="btn btn-default">Refresh Table</button><br><br>
 			    
 				<table id="data_table" class="display" style="width:100%">
