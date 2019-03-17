@@ -65,4 +65,4 @@ api.add_resource(AllLocations, '/get_all')
 api.add_resource(AddLocation, '/add_new')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=1221, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
