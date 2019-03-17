@@ -4,23 +4,23 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - "8080:80"
+      - 8080:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
 
   my_app:
     build: ./app
-    volumes:
-      - ./app:/user/src/app
     ports:
       - 1234:80
+    volumes:
+      - ./app:/user/src/app
     depends_on:
       - postgres
 
   postgres:
     restart: 'always'
     ports:
-      - '5432:5432'
+      - 5432:5432
     environment:
       - "POSTGRES_PASSWORD=postgres"
     build: ./db

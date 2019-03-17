@@ -15,7 +15,7 @@ EXPOSE 80
 
 # Define environment variable
 ENV DB_TABLE 'locations'
-ENV CON_STRING 'postgresql://postgres:postgres@postgres:5432'
+ENV DB_CONN 'postgresql://postgres:postgres@postgres:5432'
 ENV MAX_RECORDS 1000
 
 # Run app.py when the container launches
