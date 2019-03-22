@@ -2,20 +2,20 @@ version: '3'
 
 services:
   nginx:
-    image: "nginx:1.13.5"
+    build: ./nginx
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
 
   my_app:
     build: ./app
-    volumes:
-      - ./app:/user/src/app
     ports:
       - 1234:80
+    volumes:
+      - ./app:/user/src/app
     depends_on:
-      - postgres        
+      - postgres
 
   postgres:
     restart: 'always'

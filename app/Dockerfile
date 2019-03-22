@@ -14,8 +14,9 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 EXPOSE 80
 
 # Define environment variable
-ENV MY_ENV_VAR cool_app
+ENV DB_TABLE 'locations'
 ENV DB_CONN 'postgresql://postgres:postgres@postgres:5432'
+ENV MAX_RECORDS 1000
 
 # Run app.py when the container launches
 CMD ["python", "app.py"]
