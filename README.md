@@ -1,5 +1,5 @@
 # Docker Example: Flask, Postgres, Nginx
-A simple setup of a Flask app served over Nginx with Postgres back end.
+A simple "Hello World" setup of a Flask app served over Nginx with Postgres back end.
 
 ## Running using Docker:
 1. Clone the repo: `git clone https://github.com/kirillsavine/docker_example_flask_postgres_nginx.git`.
