@@ -16,10 +16,11 @@ A simple setup of a Flask app served over Nginx with Postgres back end
 
 
 ## Docker Installation
-To run this installation on a newly installed system, Docker and Docker Composed need to be installed first. Please refer to the following guide for Docker installation: https://docs.docker.com/compose/install/
+To run this installation on a newly installed system, Docker and Docker Composed need to be installed first. Please refer to the following guide for Docker installation: https://docs.docker.com/install/
 
-Alternatively use commands for the following script: `install_docker.sh`
+Alternatively use this script from Docker website: `curl -fsSL https://get.docker.com -o get-docker.sh` & `sh get-docker.sh`
 
+To install Docker Compose follow official documentation: https://docs.docker.com/compose/install/
 
 ## Next Steps
 
