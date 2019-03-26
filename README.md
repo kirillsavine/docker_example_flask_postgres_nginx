@@ -26,3 +26,9 @@ To install Docker Compose follow this documentation: https://docs.docker.com/com
 ## Next Steps
 
 Wrap Docker installation and deployment of the project into an Ansible playbook. I am planning to do this in the near future.
+
+## Browse the Application
+
+Point your browser to the hostname of on which the Docker cluser is running (nginx container is set to run on port 80).
+
+![screenshot](screenshot.png)
